@@ -50,4 +50,8 @@ class CreateGroupsLayer(YowInterfaceLayer):
 		errorFn = lambda errorEntity, originalEntity: ononGroupsListError(errorEntity, originalEntity)
 		self._sendIq(entity, successFn, errorFn)
 
+	@ProtocolEntityCallback("receipt")
+	def onReceipt(self, entity):
+		self.toLower(entity.ack())	
+
 		
